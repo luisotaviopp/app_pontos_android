@@ -165,50 +165,30 @@ class MainActivity : AppCompatActivity() {
         linearLayoutVertical.addView(linearLayoutH5)
 
         // Campos das horas.
-        for (i in 1..8) {
+        for (i in 0..8) {
             val horaCalculada: Int = (17 - i)
 
-            if (currentHour >= horaCalculada) {
+            if (currentHour >= horaCalculada && horaCalculada != 13) {
 
-                if (horaCalculada > 12){
-                    val linearLayoutH1 = LinearLayout(this)
+                val linearLayoutH1 = LinearLayout(this)
 
-                    val newTextView = TextView(this)
-                    newTextView.textSize = 20f
-                    newTextView.text = "$horaCalculada H"
-                    newTextView.setPadding(25)
-                    linearLayoutH1.addView(newTextView)
+                val newTextView = TextView(this)
+                newTextView.textSize = 20f
+                newTextView.text = "${horaCalculada-1} H"
+                newTextView.setPadding(25)
+                linearLayoutH1.addView(newTextView)
 
-                    val newEditText = EditText(this)
-                    newEditText.textSize = 20f
-                    newEditText.hint = "$horaCalculada H"
-                    newEditText.setPadding(25)
-                    newEditText.width = 680
-                    linearLayoutH1.addView(newEditText)
+                val newEditText = EditText(this)
+                newEditText.textSize = 20f
+                newEditText.hint = "${horaCalculada-1} H"
+                newEditText.setPadding(25)
+                newEditText.width = 680
+                linearLayoutH1.addView(newEditText)
 
-                    linearLayoutVertical.addView(linearLayoutH1)
+                linearLayoutVertical.addView(linearLayoutH1)
 
-                    listEditText.add(newEditText)
-                }
+                listEditText.add(newEditText)
 
-                else {
-                    val linearLayoutH1 = LinearLayout(this)
-
-                    val tvdynamic = TextView(this)
-                    tvdynamic.textSize = 20f
-                    tvdynamic.text = "${horaCalculada-1} H"
-                    tvdynamic.setPadding(25)
-                    linearLayoutH1.addView(tvdynamic)
-
-                    val etdynamic = EditText(this)
-                    etdynamic.textSize = 20f
-                    etdynamic.hint = "${horaCalculada-1} H"
-                    etdynamic.setPadding(25)
-                    etdynamic.width = 680
-                    linearLayoutH1.addView(etdynamic)
-
-                    linearLayoutVertical.addView(linearLayoutH1)
-                }
             }
         }
 
